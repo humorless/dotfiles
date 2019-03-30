@@ -1,4 +1,4 @@
-#alias serve='python3 -mSimpleHTTPServer'
+#alias serve='python3 -m http.server'
 #There is an nodejs http server program also named as 'serve'
 
 alias json="python -mjson.tool"
