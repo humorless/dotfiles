@@ -4,7 +4,10 @@ The scripts that can do the quick installation of vim and related dotfiles
 ## how to install vim plugins
 curl -sL https://raw.githubusercontent.com/humorless/dotfiles/master/install_vim_plugin.sh | sh
 
-## how to setup complete clojure dev environment on localhost
+### Note:
+for `vim-fireplace` to work properly, you need `sudo apt-get install unzip` so as to get `[ <C-D>` work.
+
+## how to setup complete clojure dev environment on Ubuntu-based localhost
 ```
   sudo apt-add-repository ppa:ansible/ansible
   sudo apt update
@@ -25,8 +28,7 @@ curl -sL https://raw.githubusercontent.com/humorless/dotfiles/master/install_vim
 ```
 
 in `~/.zshrc`
+
+```
 plugins=(git z zsh-syntax-highlighting colored-man-pages)
-
-
-## Note:
-for `vim-fireplace` to work properly, you need `sudo apt-get install unzip` so as to get `[ <C-D>` work.
+```
