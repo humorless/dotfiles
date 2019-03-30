@@ -1,0 +1,21 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  become_method: sudo
+  vars:
+    lein_download_url: "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein"
+    lein_install_path: "/usr/local/bin/lein"
+  roles:
+    - role: geerlingguy.java
+      when: "ansible_os_family == 'Debian'"
+      java_packages:
+        - openjdk-8-jdk
+    - role: gremid.clojure
+  tasks:
+    - name: Download Leiningen.
+      get_url:
+        url: "{{ lein_download_url }}"
+        dest: "{{ lein_install_path }}"
+        force: false
+        mode: 0755

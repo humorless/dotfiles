@@ -1,0 +1,54 @@
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set smarttab
+set autoindent
+set hlsearch
+
+colorscheme molokai
+set t_Co=256
+
+" *** Pathogen
+execute pathogen#infect()
+call pathogen#helptags()
+
+" Enable filetype plugins
+filetype plugin on
+
+"let g:go_fmt_command = "goimports"
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType clojure setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
+" stripe whitespace
+autocmd FileType clojure,go autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+
+set laststatus=2 "let status line always show up
+" vim setup for status line
+function! IsFireplaceConnected()
+  try
+    return has_key(fireplace#platform(), 'connection')
+  catch /Fireplace: :Connect to a REPL or install classpath.vim/
+    return 0 " false
+  endtry
+endfunction
+
+function! NreplStatusLine()
+  if IsFireplaceConnected()
+    return 'nREPL Connected'
+  else
+    return 'No nREPL Connection'
+  endif
+endfunction
+
+function! SetBasicStatusLine()
+  set statusline=%f   " path to file
+  set statusline+=\   " separator
+  set statusline+=%m  " modified flag
+  set statusline+=%=  " switch to right side
+  set statusline+=%y  " filetype of file
+endfunction
+
+autocmd Filetype clojure call SetBasicStatusLine()
+autocmd Filetype clojure set statusline+=\ [%{NreplStatusLine()}]  " REPL connection status
+autocmd BufLeave *.cljs,*.clj,*.cljs.hl  call SetBasicStatusLine()
