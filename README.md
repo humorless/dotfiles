@@ -16,21 +16,3 @@ for `vim-fireplace` to work properly, you need `sudo apt-get install unzip` so a
   ansible-galaxy install gremid.clojure
   ansible-playbook playbook.yml
 ```
-## how to setup zsh
-```
-  # install zsh
-  sudo apt-get install zsh
-  chsh -s /bin/zsh
-  # install Oh-my-zsh
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  # install zsh-syntax-highlighting plugin
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  # install zsh-256color plugin
-  cd $ZSH_CUSTOM/plugins && git clone https://github.com/chrissicool/zsh-256color 
-```
-
-in `~/.zshrc`
-
-```
-plugins=(git z zsh-syntax-highlighting colored-man-pages zsh-256color)
-```
