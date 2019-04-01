@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  # Maybe I will try vagrant box from https://roboxes.org/ later.	
   config.vm.box = "ubuntu/xenial64"
   config.vm.box_version = "20190325.0.0"
 
@@ -17,7 +18,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 10080, host: 10080
 
   config.vm.provider "virtualbox" do |vb|
-	vb.cpus = "2"
+    vb.cpus = "2"
     vb.memory = "2048"
   end
 
