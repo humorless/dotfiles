@@ -52,3 +52,6 @@ endfunction
 autocmd Filetype clojure call SetBasicStatusLine()
 autocmd Filetype clojure set statusline+=\ [%{NreplStatusLine()}]  " REPL connection status
 autocmd BufLeave *.cljs,*.clj,*.cljs.hl  call SetBasicStatusLine()
+
+" Let \e to execute current line as command in bash
+nmap <leader>e :.w !bash<CR>
