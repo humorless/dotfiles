@@ -12,6 +12,8 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 mkdir -p ~/.vim/colors
 curl -o ~/.vim/colors/molokai.vim   https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 
+# install NERDTree
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
 #####################################
 # setup js related vim plugin
