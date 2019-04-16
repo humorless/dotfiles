@@ -42,12 +42,32 @@ git clone https://github.com/tell-k/vim-autopep8.git ~/.vim/bundle/vim-autopep8
 
 cd ~/.vim/bundle
 # setup fireplace, the most important REPL-driven weapon
+# cheatsheet:
+# K   / :Doc    - (doc ...) in repl
+# [d  / :Source - (source ...) in repl
+# cpp / :Eval   - Evaluate form at cursor
+# cqp           - open a prompt to evaluate
+# cqc           - Open Quasi-REPL
+# cqq           - Open Quasi-REPL and prepoluate
+# [ C-d         - Jump to definition of symbol
+# gf            - go to file. Use on namespace
 git clone https://github.com/tpope/vim-fireplace.git
 
 # setup differenct version of vim rainbow parentheses
 git clone https://github.com/vim-scripts/vim-niji.git
 
-# vim-sexp will maintain the balanced state of matched character
+# vim-sexp brings the Vim philosophy of precision editing to S-expressions.
+# cheatsheet:
+#   dsf       : delete surrounding form
+#   daf, dif  : delete around/in form
+#   <leader>o : raises the current COMPOUND FORM to replace the enclosing COMPOUND FORM
+#   cseb      : surround element with (
+#   cse[      : surround element with [
+#   cse{      : surround element with {
+#   <e        : move element left
+#   >f        : move form right
+#   >)        : slurp
+#   <)        : barf
 git clone git://github.com/tpope/vim-sexp-mappings-for-regular-people.git
 git clone git://github.com/guns/vim-sexp.git
 git clone git://github.com/tpope/vim-repeat.git
