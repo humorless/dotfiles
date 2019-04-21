@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  # Maybe I will try vagrant box from https://roboxes.org/ later.	
+  # Maybe I will try vagrant box from https://roboxes.org/ later.
   config.vm.box = "ubuntu/xenial64"
   config.vm.box_version = "20190325.0.0"
 
@@ -28,4 +28,9 @@ Vagrant.configure("2") do |config|
   if Vagrant.has_plugin?("vagrant-timezone")
     config.timezone.value = "Asia/Taipei"
   end
+
+  ## Provision -- default run only once. However, it can be configuread to run always
+  config.vm.provision "shell",
+   path: "https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh",
+   privileged: false
 end
