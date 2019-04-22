@@ -29,8 +29,13 @@ Vagrant.configure("2") do |config|
     config.timezone.value = "Asia/Taipei"
   end
 
-  ## Provision -- default run only once. However, it can be configuread to run always
-  config.vm.provision "shell",
-   path: "https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh",
-   privileged: false
+  ## Provision -- default run only once.
+  ## vagrant provision --provision-with nvm to provision
+  config.vm.provision "nvm", type: "shell",
+    path: "https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh",
+    privileged: false
+  ## vagrant provision --provision-with autojump to provision
+  config.vm.provision "autojump", type: "shell",
+    inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc"
+    privileged: false
 end
