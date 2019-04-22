@@ -36,6 +36,6 @@ Vagrant.configure("2") do |config|
     privileged: false
   ## vagrant provision --provision-with autojump to provision
   config.vm.provision "autojump", type: "shell",
-    inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc"
+    inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc",
     privileged: false
 end
