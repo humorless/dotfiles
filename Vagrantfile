@@ -30,11 +30,11 @@ Vagrant.configure("2") do |config|
   end
 
   ## Provision -- default run only once.
-  ## vagrant provision --provision-with nvm to provision
+  ## vagrant provision --provision-with nvm
   config.vm.provision "nvm", type: "shell",
     path: "https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh",
     privileged: false
-  ## vagrant provision --provision-with autojump to provision
+  ## vagrant provision --provision-with autojump
   config.vm.provision "autojump", type: "shell",
     inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc",
     privileged: false
