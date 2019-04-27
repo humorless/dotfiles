@@ -9,10 +9,13 @@ for `vim-fireplace` to work properly, you need `sudo apt-get install unzip` so a
 
 ## how to setup complete clojure dev environment on Ubuntu-based localhost
 ```
+  # install ansible
   sudo apt-add-repository ppa:ansible/ansible
   sudo apt update
   sudo apt-get install ansible
-  ansible-galaxy install geerlingguy.java
-  ansible-galaxy install gremid.clojure
-  ansible-playbook playbook.yml
+  # install ansible roles
+  ansible-galaxy install -r requirements.yml
+  # run the playbook
+  # Note: the comma is the trick to specify host name directly in commandline
+  ansible-playbook -i localhost, -c local playbook.yml
 ```
