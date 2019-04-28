@@ -38,10 +38,20 @@ Vagrant.configure("2") do |config|
   config.vm.provision "autojump", type: "shell",
     inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc",
     privileged: false
-  ##
+  ## vagrant provision --provision-with ansible_local
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbook.yml"
     ansible.galaxy_role_file = "requirements.yml"
     ansible.verbose = true
   end
+  ## vagrant provision --provision-with unzip
+  config.vm.provision "unzip", type: "shell",
+    inline: "sudo apt-get install unzip",
+    privileged: false
+  ## vagrant provision --provision-with vim
+  config.vm.provision "vim", type: "shell",
+    path: "https://raw.githubusercontent.com/humorless/dotfiles/master/install_vim_plugin.sh",
+    privileged: false
+  ## vagrant provision --provision-with file
+  config.vm.provision "file", source: "./lein/profiles.clj", destination: "~/.lein/profiles.clj"
 end
