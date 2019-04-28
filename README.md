@@ -1,13 +1,15 @@
 # dotfiles
 The scripts that can do the quick installation of vim and related dotfiles
 
-## how to install vim plugins
+Currently, the provision section of vagrantfile will install a Clojure Dev environment including vim plugin, openjdk, leiningen, autojump, nvm.
+
+## How to install vim plugins
 curl -sL https://raw.githubusercontent.com/humorless/dotfiles/master/vim/install_plugin.sh | sh
 
 ### Note:
 for `vim-fireplace` to work properly, you need `sudo apt-get install unzip` so as to get `[ <C-D>` work.
 
-## how to setup complete clojure dev environment on Ubuntu-based localhost
+## How to setup openjdk & leiningen on Ubuntu host by ansible-local
 ```
   # install ansible
   sudo apt-add-repository ppa:ansible/ansible
