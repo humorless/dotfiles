@@ -4,7 +4,7 @@
   become_method: sudo
   vars:
     lein_download_url: "https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein"
-    lein_install_path: "/usr/local/bin/lein"
+    lein_install_path: "/usr/bin/lein"
   roles:
     - role: geerlingguy.java
       when: "ansible_os_family == 'Debian'"
@@ -16,5 +16,5 @@
       get_url:
         url: "{{ lein_download_url }}"
         dest: "{{ lein_install_path }}"
-        force: false
+        force: no
         mode: 0755
