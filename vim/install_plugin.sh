@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # install .vimrc
-curl -o ~/.vimrc https://raw.githubusercontent.com/humorless/dotfiles/master/vimrc
+curl -o ~/.vimrc https://raw.githubusercontent.com/humorless/dotfiles/master/vim/vimrc
 
 # prepare vim pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \

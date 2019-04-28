@@ -2,7 +2,7 @@
 The scripts that can do the quick installation of vim and related dotfiles
 
 ## how to install vim plugins
-curl -sL https://raw.githubusercontent.com/humorless/dotfiles/master/install_vim_plugin.sh | sh
+curl -sL https://raw.githubusercontent.com/humorless/dotfiles/master/vim/install_plugin.sh | sh
 
 ### Note:
 for `vim-fireplace` to work properly, you need `sudo apt-get install unzip` so as to get `[ <C-D>` work.

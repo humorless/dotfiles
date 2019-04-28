@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
     privileged: false
   ## vagrant provision --provision-with vim
   config.vm.provision "vim", type: "shell",
-    path: "https://raw.githubusercontent.com/humorless/dotfiles/master/install_vim_plugin.sh",
+    path: "https://raw.githubusercontent.com/humorless/dotfiles/master/vim/install_plugin.sh",
     privileged: false
   ## vagrant provision --provision-with file
   config.vm.provision "file", source: "./lein/profiles.clj", destination: "~/.lein/profiles.clj"
