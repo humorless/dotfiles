@@ -61,6 +61,7 @@ git clone https://github.com/vim-scripts/vim-niji.git
 #   dsf       : delete surrounding form
 #   daf, dif  : delete around/in form
 #   <leader>o : raises the current COMPOUND FORM to replace the enclosing COMPOUND FORM
+#   <leader>O : raises the current Element to replace the enclosing COMPOUND FORM
 #   cseb      : surround element with (
 #   cse[      : surround element with [
 #   cse{      : surround element with {
