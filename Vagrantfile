@@ -12,9 +12,8 @@ Vagrant.configure("2") do |config|
   # All configurations use 10.20.30.40 as entry.
   config.vm.network "private_network", ip: "10.20.30.40"
   # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  # 3449 is the port used by lein figwheel server
+  config.vm.network "forwarded_port", guest: 3449, host: 3449
   config.vm.network "forwarded_port", guest: 10080, host: 10080
 
   config.vm.provider "virtualbox" do |vb|
