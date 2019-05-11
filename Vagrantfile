@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # 3449 is the port used by lein figwheel server
   config.vm.network "forwarded_port", guest: 3449, host: 3449
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
   config.vm.network "forwarded_port", guest: 10080, host: 10080
 
   config.vm.provider "virtualbox" do |vb|
