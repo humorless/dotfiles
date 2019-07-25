@@ -1,6 +1,7 @@
 {:user {:dependencies [[cljfmt "0.6.4"]
                        [im.chit/vinyasa  "0.2.0"]]
-        :plugins [[lein-kibit "0.1.5"]
+        :plugins [[lein-pprint "1.2.0"]
+                  [lein-kibit "0.1.5"]
                   [jonase/eastwood "0.2.5"]
                   [lein-marginalia "0.9.1"]
                   [io.taylorwood/lein-native-image "0.3.0"]
