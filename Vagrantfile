@@ -53,6 +53,6 @@ Vagrant.configure("2") do |config|
   ## autojump is likely to fail because apt-get cannot locate package
   ## vagrant provision --provision-with autojump
   config.vm.provision "autojump", type: "shell",
-    inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc",
+    inline: "sudo apt-get update && sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc",
     privileged: false
 end
