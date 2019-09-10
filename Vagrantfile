@@ -34,10 +34,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "nvm", type: "shell",
     path: "https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh",
     privileged: false
-  ## vagrant provision --provision-with autojump
-  config.vm.provision "autojump", type: "shell",
-    inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc",
-    privileged: false
   ## vagrant provision --provision-with ansible_local
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbook.yml"
@@ -54,4 +50,9 @@ Vagrant.configure("2") do |config|
     privileged: false
   ## vagrant provision --provision-with file
   config.vm.provision "file", source: "./lein/profiles.clj", destination: "~/.lein/profiles.clj"
+  ## autojump is likely to fail because apt-get cannot locate package
+  ## vagrant provision --provision-with autojump
+  config.vm.provision "autojump", type: "shell",
+    inline: "sudo apt-get install autojump && echo \". /usr/share/autojump/autojump.sh\" >> /home/vagrant/.bashrc",
+    privileged: false
 end
