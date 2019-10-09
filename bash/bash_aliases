@@ -9,7 +9,7 @@ alias show_ppid_one="ps -elf | head -1; ps -elf | awk '{if ($5 == 1) {print $0}}
 
 # alias for leiningen
 alias repl="tmux new-session -d -s repl 'lein repl'"
-alias ling="tmux new-session -d -s lein-ring 'lein ring server-headless'"
+alias ling="tmux new-session -d -s ling 'lein ring server-headless'"
 
 # alias for tmux
 alias tmux='tmux -2'
