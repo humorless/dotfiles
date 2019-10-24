@@ -45,6 +45,7 @@ Vagrant.configure("2") do |config|
     inline: "sudo apt-get install unzip",
     privileged: false
   ## vagrant provision --provision-with vim
+  ## Equivalent to `curl -o- https://raw.githubusercontent.com/humorless/dotfiles/master/vim/install_plugin.sh | bash`
   config.vm.provision "vim", type: "shell",
     path: "https://raw.githubusercontent.com/humorless/dotfiles/master/vim/install_plugin.sh",
     privileged: false
