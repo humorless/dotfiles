@@ -45,6 +45,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "vim", type: "shell",
     path: "https://raw.githubusercontent.com/humorless/dotfiles/master/vim/install_plugin.sh",
     privileged: false
+  ## vagrant provision --provision-with vim8
+  config.vm.provision "vim8", type: "shell",
+    inline: "add-apt-repository ppa:jonathonf/vim && apt-get -y update && apt-get -y install vim",
+    privileged: true
   ## vagrant provision --provision-with boot
   config.vm.provision "boot", type: "shell",
     inline: "cd /usr/local/bin && curl -fsSLo boot https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh && chmod 755 boot",
@@ -53,8 +57,20 @@ Vagrant.configure("2") do |config|
   config.vm.provision "lein", type: "shell",
     inline: "cd /usr/local/bin && curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > lein && chmod a+x /usr/local/bin/lein",
     privileged: true
-  ## vagrant provision --provision-with file
-  config.vm.provision "file", source: "./lein/profiles.clj", destination: "~/.lein/profiles.clj"
+  ## vagrant provision --provision-with java
+  config.vm.provision "java", type: "shell",
+    inline: "apt-get -y install openjdk-8-jre-headless",
+    privileged: true
+  ## vagrant provision --provision-with lein-config-file
+  config.vm.provision "lein-config-file", type: "file",
+    source: "./lein/profiles.clj",
+    destination: "~/.lein/profiles.clj"
+
+  ## vagrant provision --provision-with bash-alias-file
+  ## config.vm.provision "bash-alias-file", type: "file",
+  ##  source: "./bash/bash_aliases",
+  ##  destination: "~/.bash_aliases"
+
   ## autojump is likely to fail because apt-get cannot locate package
   ## vagrant provision --provision-with autojump
   config.vm.provision "autojump", type: "shell",
