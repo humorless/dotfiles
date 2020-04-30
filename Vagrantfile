@@ -66,11 +66,6 @@ Vagrant.configure("2") do |config|
     source: "./lein/profiles.clj",
     destination: "~/.lein/profiles.clj"
 
-  ## vagrant provision --provision-with bash-alias-file
-  ## config.vm.provision "bash-alias-file", type: "file",
-  ##  source: "./bash/bash_aliases",
-  ##  destination: "~/.bash_aliases"
-
   ## autojump is likely to fail because apt-get cannot locate package
   ## vagrant provision --provision-with autojump
   config.vm.provision "autojump", type: "shell",
