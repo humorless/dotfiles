@@ -80,6 +80,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision "cljfmt", type: "shell",
     inline: "npm install -g node-cljfmt",
     privileged: true
+  ## vagrant provision --provision-with chrome
+  config.vm.provision "chrome", type: "shell",
+    inline: "cd /tmp && sudo apt-get -y update && sudo apt-get -y install libxss1 libappindicator1 libindicator7 && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt -y install ./google-chrome-stable_current_amd64.deb",
+    privileged: false
+  ## vagrant provision --provision-with webdriver
+  config.vm.provision "webdriver", type: "shell",
+    inline: "cd /tmp && wget https://chromedriver.storage.googleapis.com/81.0.4044.138/chromedriver_linux64.zip && unzip chromedriver_linux64.zip && sudo mv chromedriver /usr/bin/ ",
+    privileged: false
+
   ## Ansible is not as good as I originally thought
   ## vagrant provision --provision-with ansible_local
   #config.vm.provision "ansible_local" do |ansible|
