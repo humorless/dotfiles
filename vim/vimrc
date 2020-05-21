@@ -57,3 +57,6 @@ autocmd BufLeave *.cljs,*.clj,*.cljs.hl  call SetBasicStatusLine()
 autocmd FileType markdown nmap <leader>e :.w !bash<CR>
 " Let \t to open NERDTree
 nnoremap <leader>t :NERDTree<CR>
+
+" Let cljfmt to format *.cljs files everytime when saving
+au BufWritePost *.cljs !cljfmt -w %
