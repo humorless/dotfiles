@@ -66,10 +66,13 @@ Vagrant.configure("2") do |config|
     source: "./lein/profiles.clj",
     destination: "~/.lein/profiles.clj"
 
+  ## Note1: if ~/.bash_aliases has CRLF char, it will not work
+  ##        In this case, use the command dos2unix properly
+  ## Note2: vagrant upload *localfile* is another shortcut to upload
   ## vagrant provision --provision-with bash-alias-file
-  ## config.vm.provision "bash-alias-file", type: "file",
-  ##  source: "./bash/bash_aliases",
-  ##  destination: "~/.bash_aliases"
+  config.vm.provision "bash-alias-file", type: "file",
+    source: "./bash/bash_aliases",
+    destination: "~/.bash_aliases"
 
   ## autojump is likely to fail because apt-get cannot locate package
   ## vagrant provision --provision-with autojump
@@ -86,7 +89,7 @@ Vagrant.configure("2") do |config|
     privileged: false
   ## vagrant provision --provision-with webdriver
   config.vm.provision "webdriver", type: "shell",
-    inline: "cd /tmp && wget https://chromedriver.storage.googleapis.com/81.0.4044.138/chromedriver_linux64.zip && unzip chromedriver_linux64.zip && sudo mv chromedriver /usr/bin/ ",
+    inline: "cd /tmp && wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip && unzip chromedriver_linux64.zip && sudo mv chromedriver /usr/bin/ ",
     privileged: false
 
   ## Ansible is not as good as I originally thought
