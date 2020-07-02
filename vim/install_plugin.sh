@@ -83,3 +83,6 @@ git clone https://github.com/guns/vim-slamhound.git
 # strip whitespace
 git clone https://github.com/ntpeters/vim-better-whitespace.git
 # after install vim-better-whitespace, you can use :StripWhitespace to remove white space
+
+# ALE is for using clj-kondo
+git clone --depth 1 https://github.com/dense-analysis/ale.git

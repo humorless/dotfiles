@@ -23,36 +23,7 @@ autocmd FileType clojure setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 " stripe whitespace
 autocmd FileType clojure,go autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 
-set laststatus=2 "let status line always show up
-" vim setup for status line
-function! IsFireplaceConnected()
-  try
-    return has_key(fireplace#platform(), 'connection')
-  catch /Fireplace: :Connect to a REPL or install classpath.vim/
-    return 0 " false
-  endtry
-endfunction
-
-function! NreplStatusLine()
-  if IsFireplaceConnected()
-    return 'nREPL Connected'
-  else
-    return 'No nREPL Connection'
-  endif
-endfunction
-
-function! SetBasicStatusLine()
-  set statusline=%f   " path to file
-  set statusline+=\   " separator
-  set statusline+=%m  " modified flag
-  set statusline+=%=  " switch to right side
-  set statusline+=%y  " filetype of file
-endfunction
-
-autocmd Filetype clojure call SetBasicStatusLine()
-autocmd Filetype clojure set statusline+=\ [%{NreplStatusLine()}]  " REPL connection status
-autocmd BufLeave *.cljs,*.clj,*.cljs.hl  call SetBasicStatusLine()
-
+let g:ale_linters = {'clojure': ['clj-kondo']}
 " Let \e to execute current line as command in bash
 autocmd FileType markdown nmap <leader>e :.w !bash<CR>
 " Let \t to open NERDTree
