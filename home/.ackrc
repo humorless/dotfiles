@@ -1,0 +1,7 @@
+# Tips:
+# using ack to show only the clojure files for further processing
+# ack -f --clojure
+#
+--ignore-dir=resources
+--ignore-dir=.shadow-cljs
+--ignore-dir=.cpcache
