@@ -41,6 +41,7 @@ let g:ale_linters = {
       \ 'clojure': ['clj-kondo', 'joker']
       \}
 let maplocalleader=","
+tnoremap <Esc> <C-\><C-n>
 
 runtime! plugin/default.vim
 set nonu
