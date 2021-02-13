@@ -22,6 +22,9 @@ boot
 leiningen
 vim8
 clj-kondo
+# feeling
+git bash-complete
+CLICOLOR, LSCOLORS, PS1
 # productive utility
 tmux
 autojump
