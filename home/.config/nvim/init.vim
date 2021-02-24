@@ -29,6 +29,8 @@ Plug 'bakpakin/fennel.vim'
 " color, look and feel 
 Plug 'tomasr/molokai'
 
+" install ack
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 " Place configuration AFTER `call plug#end()`!
@@ -41,6 +43,8 @@ let g:ale_linters = {
       \ 'clojure': ['clj-kondo', 'joker']
       \}
 let maplocalleader=","
+" let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
+let g:ackprg = 'ack --nogroup --nocolor --column'
 tnoremap <Esc> <C-\><C-n>
 
 runtime! plugin/default.vim
