@@ -66,6 +66,11 @@ set nonu
 set norelativenumber
 colorscheme molokai
 
-" You need to press :e after :w if you want to reload the formatted file
-autocmd BufWritePost *.clj !cljfmt -w %
-autocmd BufWritePost *.cljs !cljfmt -w %
+function! Cljfmt()
+ !cljfmt -w %
+ " :e is to force reload the file after it got formatted.
+ :e
+endfunction
+
+autocmd BufWritePost *.clj call Cljfmt()
+autocmd BufWritePost *.cljs call Cljfmt()
