@@ -38,13 +38,26 @@
          :main-opts ["-m" "nrepl.cmdline" "--middleware"
                      "[cider.nrepl/cider-middleware]"
                      "--interactive"]}
-
+       :shadow-cider-clj
+        {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.6"}}
+         :main-opts  ["-m" "nrepl.cmdline" "--middleware"
+                     "[cider.nrepl/cider-middleware, shadow.cljs.devtools.server.nrepl/middleware]"
+                     "--interactive"]}
+       ;; How to use
+       ;; https://github.com/seancorfield/clj-new
+       ;;
+       ;; clojure -X:new :name myname/myapp
+       ;; cd myapp
+       ;; clojure -M -m myname.myapp
        :new
         {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.243"}}
          :exec-fn clj-new/create
-         :exec-args {:template "app"}}}
+         :exec-args {:template "app"}}
 
-  ;; :aliases {
+       :kibit
+        {:extra-deps {tvaughan/kibit-runner {:mvn/version "0.1.0"}}
+         :main-opts ["-m" "kibit-runner.cmdline"]}}
+      ;; :aliases {
   ;;   :deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.9.857"}}}
   ;;   :test {:extra-paths ["test"]}
   ;; }
