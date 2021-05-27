@@ -49,7 +49,7 @@ brew install ack
 ```
 brew install tmux
 ```
-## Node Dev
+## Node Dev & cljfmt
 ### nvm
 ```
 brew install nvm
@@ -57,6 +57,10 @@ brew install nvm
 ### npm
 ```
 brew install node
+```
+### cljfmt
+```
+npm install -g node-cljfmt
 ```
 
 ## Others
