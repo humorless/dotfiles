@@ -1,33 +1,67 @@
 # dotfiles
-The scripts that can do the quick installation of vim and related dotfiles under the Mac
+The scripts that can do the quick installation of neovim and related dotfiles under the Mac
 
-## Use only vim plugins 
+## Java & Clojure Dev
+### sdkman
 ```
-curl -sL https://raw.githubusercontent.com/humorless/dotfiles/master/vim/install_plugin.sh | sh
+curl -s "https://get.sdkman.io" | bash
 ```
-### Note:
-for `vim-fireplace` to work properly, you need to install `unzip` so as to get `[ <C-D>` work.
+### java
+```
+sdk list java
+sdk install java  ;; lastest stable version of jdk
+```
+### leiningen
+```
+sdk install leiningen
+```
+### clojure CLI tools
+```
+brew install clojure/tools/clojure
+```
+### boot
+```
+brew install boot-clj
+```
+### babashka
+```
+brew install borkdude/brew/babashka
+```
+### clj-kondo
+```
+brew install borkdude/brew/clj-kondo
+```
+### neovim
+```
+brew install neovim
+```
+## Productivity Tool
 
-##
-add install scripts for the following programs
+### autojump
 ```
-# for node env
-nvm
-npm
-java
-# for Clojure dev env
-babashka
-deps & clj
-boot
-leiningen
-vim8
-clj-kondo
+brew install autojump
+```
+### ack-grep
+```
+brew install ack
+```
+### tmux
+```
+brew install tmux
+```
+## Node Dev
+### nvm
+```
+brew install nvm
+```
+### npm
+```
+brew install node
+```
+
+## Others
+```
 # feeling
 git bash-complete
 CLICOLOR, LSCOLORS, PS1
-# productive utility
-tmux
-autojump
-ack-grep
-script
 ```
