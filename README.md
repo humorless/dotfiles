@@ -5,6 +5,7 @@ The scripts that can do the quick installation of neovim and related dotfiles un
 ### sdkman
 ```
 curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 ```
 ### java
 ```
