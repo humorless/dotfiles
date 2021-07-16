@@ -12,6 +12,7 @@ Plug 'Olical/conjure', { 'tag': 'v4.14.0' }
 " s-expression editing
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
 
 " rainbow parentheses
