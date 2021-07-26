@@ -16,6 +16,10 @@ sdk install java  ;; lastest stable version of jdk
 ```
 sdk install leiningen
 ```
+### brew
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 ### clojure CLI tools
 ```
 brew install clojure/tools/clojure
