@@ -61,8 +61,13 @@ brew install nvm
 ```
 ### npm
 ```
-brew install node
+nvm install <VERSION-number>
 ```
+ex:
+```
+nvm install 12.0.0
+```
+
 ### cljfmt
 ```
 npm install -g node-cljfmt
