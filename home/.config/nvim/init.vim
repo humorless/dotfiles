@@ -58,8 +58,8 @@ let g:LanguageClient_serverCommands = {
 " nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
 nmap <silent> <LocalLeader>r <Plug>(lcn-references)
-nmap <silent> gd <Plug>(lcn-definition)
-" "nmap <silent> <F2> <Plug>(lcn-rename)
+" Use the go to definition function of Conjure, not using lsp version
+
 
 tnoremap <Esc> <C-\><C-n>
 runtime! plugin/default.vim
