@@ -8,6 +8,9 @@ Plug 'liuchengxu/vim-better-default'
 
 " Conjure
 Plug 'Olical/conjure', { 'tag': 'v4.14.0' }
+" Fennel local config
+Plug 'Olical/nvim-local-fennel'
+Plug 'Olical/aniseed'
 
 " s-expression editing
 Plug 'guns/vim-sexp'
