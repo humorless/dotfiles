@@ -36,16 +36,7 @@ Plug 'tomasr/molokai'
 " install ack
 Plug 'mileszs/ack.vim'
 
-
-" Plug 'autozimu/LanguageClient-neovim', {
-"  \ 'branch': 'next',
-"  \ 'do': 'bash install.sh',
-"  \ }
-
-" vim-jack-in
-Plug 'tpope/vim-dispatch'
-Plug 'clojure-vim/vim-jack-in'
-Plug 'radenling/vim-dispatch-neovim'
+" vim-sqlformat
 Plug 'mpyatishev/vim-sqlformat'
 call plug#end()
 
@@ -61,16 +52,11 @@ let g:ale_linters = {
 let maplocalleader=","
 " let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 let g:ackprg = 'ack --nogroup --nocolor --column'
-"let g:LanguageClient_serverCommands = {
-"    \ 'clojure': ['/usr/local/bin/clojure-lsp'],
-"    \ }
 
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 " nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
 nmap <silent> <LocalLeader>r <Plug>(lcn-references)
-" "nmap <silent> gd <Plug>(lcn-definition)
-" "nmap <silent> <F2> <Plug>(lcn-rename)
 
 tnoremap <Esc> <C-\><C-n>
 runtime! plugin/default.vim
