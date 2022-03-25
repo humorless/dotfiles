@@ -36,8 +36,6 @@ Plug 'tomasr/molokai'
 " install ack
 Plug 'mileszs/ack.vim'
 
-" vim-sqlformat
-Plug 'mpyatishev/vim-sqlformat'
 call plug#end()
 
 " Place configuration AFTER `call plug#end()`!
