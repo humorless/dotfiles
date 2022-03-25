@@ -20,6 +20,12 @@ sdk install leiningen
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+### python
+```
+brew install pyenv
+pyenv init
+```
+
 ### clojure CLI tools
 ```
 brew install clojure/tools/clojure
