@@ -12,10 +12,6 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk list java
 sdk install java  ;; lastest stable version of jdk
 ```
-### leiningen
-```
-sdk install leiningen
-```
 ### brew
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -30,13 +26,13 @@ pyenv init
 ```
 brew install clojure/tools/clojure
 ```
-### boot
-```
-brew install boot-clj
-```
 ### babashka
 ```
 brew install borkdude/brew/babashka
+```
+### neil
+```
+brew install babashka/brew/neil
 ```
 ### clj-kondo
 ```
