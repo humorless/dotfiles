@@ -6,6 +6,8 @@ call plug#begin(stdpath('data') . '/plugged')
 " better default
 Plug 'liuchengxu/vim-better-default'
 
+" vim just syntax
+Plug 'NoahTheDuke/vim-just'
 " Syntax highlights
 Plug 'clojure-vim/clojure.vim'
 
@@ -41,6 +43,8 @@ Plug 'tomasr/molokai'
 Plug 'mileszs/ack.vim'
 Plug 'mpyatishev/vim-sqlformat'
 
+" Install fuzzy search
+Plug 'cloudhead/neovim-fuzzy'
 
 call plug#end()
 
@@ -56,9 +60,10 @@ let g:ale_linters = {
       \}
 let maplocalleader=","
 " let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
-let g:ackprg = 'ack --nogroup --nocolor --column'
+let g:ack_default_options = ' -s -H --nogroup --nocolor --column --smart-case --follow'
 
-
+" mapping for fuzzy search
+nnoremap <C-p> :FuzzyOpen<CR>
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 " nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
@@ -73,20 +78,47 @@ set norelativenumber
 colorscheme molokai
 
 function! Cljfmt()
- !cljfmt -w %
+ !cljfmt fix %
  " :e is to force reload the file after it got formatted.
  :e
 endfunction
 
 function! CljfmtSlow()
- !clojure -Sdeps '{:deps {cljfmt {:mvn/version "0.8.0"}}}' -m cljfmt.main fix %
+ !clojure -Sdeps '{:deps {dev.weavejester/cljfmt {:mvn/version "0.10.6"}}}' -m cljfmt.main fix %
  " :e is to force reload the file after it got formatted.
  :e
 endfunction
 
-autocmd BufWritePost *.clj call Cljfmt()
+function! LoadHiccup()
+ execute(ConjureEval (require '[taipei-404.html :refer [html->hiccup]]))
+endfunction
+
+function! Sqlfmt()
+ "`:call Sqlfmt()` to format the current sql file
+ " The sqlfmt requires the installation of sqlparse
+ " `pip install sqlparse`
+ " `pip install sqlfluff`
+  !sqlformat --reindent --keywords upper --identifiers lower % -o %
+ ""!sqlfluff fix % --dialect postgres 
+ :e
+endfunction
+
+function! Yamlfmt()
+ " call Yamlfmt() to format the current yaml file
+ " pip install yamlfix
+ !yamlfix %
+ :e
+endfunction
+
+" default yaml setup
+setlocal sw=2 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
+" autocmd BufWritePost *.cljs call Cljfmt()
 autocmd BufWritePost *.clj call Cljfmt()
 autocmd BufWritePost *.boot call Cljfmt()
+autocmd BufWritePost *.edn call Cljfmt()
 
 
 iabbrev @@ laurence@replware.dev
+
+
