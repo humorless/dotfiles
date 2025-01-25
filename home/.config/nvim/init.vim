@@ -3,6 +3,9 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Specify your required plugins here.
 
+" better escape shortcut
+""Plug 'jdhao/better-escape.vim'
+
 " better default
 Plug 'liuchengxu/vim-better-default'
 
@@ -45,6 +48,10 @@ Plug 'mpyatishev/vim-sqlformat'
 
 " Install fuzzy search
 Plug 'cloudhead/neovim-fuzzy'
+
+" install autocompletion framework
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
@@ -90,7 +97,7 @@ function! CljfmtSlow()
 endfunction
 
 function! LoadHiccup()
- execute(ConjureEval (require '[taipei-404.html :refer [html->hiccup]]))
+ execute "ConjureEval (require '[taipei-404.html :refer [html->hiccup]])"
 endfunction
 
 function! Sqlfmt()
@@ -113,7 +120,9 @@ endfunction
 " default yaml setup
 setlocal sw=2 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
-" autocmd BufWritePost *.cljs call Cljfmt()
+autocmd BufNewFile,BufRead *bin/dev set filetype=clojure
+autocmd BufWritePost *.cljs call Cljfmt()
+autocmd BufWritePost *.cljc call Cljfmt()
 autocmd BufWritePost *.clj call Cljfmt()
 autocmd BufWritePost *.boot call Cljfmt()
 autocmd BufWritePost *.edn call Cljfmt()
