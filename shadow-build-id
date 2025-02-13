@@ -1,0 +1,12 @@
+#!/usr/bin/env bb
+;; This script is to grep the first build from shadow-cljs.edn of current directory
+;; It is used by neovim
+
+(require '[clojure.edn :as edn])
+(require '[clojure.java.io :as io])
+(require '[cheshire.core :as json])
+
+(def shadow-config (edn/read-string (slurp (io/file "shadow-cljs.edn"))))
+(def build-ids (map name (keys (:builds shadow-config)))) ;; 轉換成字串
+
+(print (first build-ids))
