@@ -133,7 +133,7 @@ iabbrev @@ laurence@replware.dev
 function! AutoConjureSelect()
   "let shadow_build=system("cat shadow-cljs.edn | grep :builds -A 1 | tail -n 1 | sed 's/{://'")
   "let shadow_build='main'
-  let shadow_build=system("shadow-build-id")
+  let shadow_build=system("shadow-build-id.edn")
   let cmd='ConjureShadowSelect ' . shadow_build
   execute cmd
 endfunction
