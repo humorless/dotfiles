@@ -56,9 +56,10 @@ Plug 'cloudhead/neovim-fuzzy'
 call plug#end()
 
 " Place configuration AFTER `call plug#end()`!
-"
+
 let g:aniseed#env = v:true
 let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
+let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
