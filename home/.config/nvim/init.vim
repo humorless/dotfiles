@@ -9,13 +9,16 @@ call plug#begin(stdpath('data') . '/plugged')
 " better default
 Plug 'liuchengxu/vim-better-default'
 
-" vim just syntax
+" Syntax highlight for JUST
 Plug 'NoahTheDuke/vim-just'
-" Syntax highlights
+
+" Syntax highlight for Clojure
 Plug 'clojure-vim/clojure.vim'
+" Syntax highlight for fennel language
+Plug 'bakpakin/fennel.vim'
 
 " Conjure
-Plug 'Olical/conjure', {'tag': 'v4.38.0'}
+Plug 'Olical/conjure', {'tag': 'v4.53.0'}
 " Fennel local config
 Plug 'Olical/nvim-local-fennel'
 Plug 'Olical/aniseed'
@@ -35,9 +38,6 @@ Plug 'w0rp/ale'
 
 " better preview window for suggestion/ auto-complete 
 Plug 'ncm2/float-preview.nvim'
-
-" syntax highlight for fennel language
-Plug 'bakpakin/fennel.vim'
 
 " color, look and feel 
 Plug 'tomasr/molokai'
