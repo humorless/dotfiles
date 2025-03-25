@@ -121,14 +121,15 @@ endfunction
 setlocal sw=2 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
 autocmd BufNewFile,BufRead *bin/dev set filetype=clojure
+autocmd BufNewFile,BufRead *bin/launchpad set filetype=clojure
+autocmd BufNewFile,BufRead *bin/proj set filetype=clojure
+autocmd BufNewFile,BufRead *.bb set filetype=clojure
 autocmd BufWritePost *.cljs call Cljfmt()
 autocmd BufWritePost *.cljc call Cljfmt()
 autocmd BufWritePost *.clj call Cljfmt()
 autocmd BufWritePost *.boot call Cljfmt()
 autocmd BufWritePost *.edn call Cljfmt()
 
-
-iabbrev @@ laurence@replware.dev
 
 function! AutoConjureSelect()
   "let shadow_build=system("cat shadow-cljs.edn | grep :builds -A 1 | tail -n 1 | sed 's/{://'")
