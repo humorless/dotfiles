@@ -57,6 +57,7 @@ call plug#end()
 
 " Place configuration AFTER `call plug#end()`!
 "
+let g:aniseed#env = v:true
 let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
@@ -89,6 +90,13 @@ function! Cljfmt()
  " :e is to force reload the file after it got formatted.
  :e
 endfunction
+
+function! Fnlfmt()
+ !fnlfmt --fix %
+ " :e is to force reload the file after it got formatted.
+ :e
+endfunction
+
 
 function! CljfmtSlow()
  !clojure -Sdeps '{:deps {dev.weavejester/cljfmt {:mvn/version "0.10.6"}}}' -m cljfmt.main fix %
@@ -129,14 +137,8 @@ autocmd BufWritePost *.cljc call Cljfmt()
 autocmd BufWritePost *.clj call Cljfmt()
 autocmd BufWritePost *.boot call Cljfmt()
 autocmd BufWritePost *.edn call Cljfmt()
+autocmd BufWritePost *.fnl call Fnlfmt()
 
 
-function! AutoConjureSelect()
-  "let shadow_build=system("cat shadow-cljs.edn | grep :builds -A 1 | tail -n 1 | sed 's/{://'")
-  "let shadow_build='main'
-  let shadow_build=system("shadow-build-id.edn")
-  let cmd='ConjureShadowSelect ' . shadow_build
-  execute cmd
-endfunction
-command! AutoConjureSelect call AutoConjureSelect()
+lua require('auto-conjure')
 autocmd BufReadPost *.cljs :AutoConjureSelect
