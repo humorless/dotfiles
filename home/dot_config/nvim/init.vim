@@ -32,6 +32,8 @@ Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
 
 " rainbow parentheses
 Plug 'amdt/vim-niji'
+" vim-niji does not work for fennel for unknown reason, so I install vim-rainbow
+Plug 'frazrepo/vim-rainbow'
 
 " linter 
 Plug 'w0rp/ale'
@@ -60,6 +62,15 @@ call plug#end()
 let g:aniseed#env = v:true
 let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
 let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
+let g:rainbow_ctermfgs = [
+            \ 'red',
+            \ 'yellow',
+            \ 'green',
+            \ 'cyan',
+            \ 'magenta',
+            \ 'gray',
+            \ ]
+
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
@@ -129,6 +140,9 @@ endfunction
 " default yaml setup
 setlocal sw=2 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
+
+" rainbow parentheses enabled for fennel
+autocmd FileType fennel call rainbow#load()
 autocmd BufNewFile,BufRead *bin/dev set filetype=clojure
 autocmd BufNewFile,BufRead *bin/launchpad set filetype=clojure
 autocmd BufNewFile,BufRead *bin/proj set filetype=clojure
@@ -139,7 +153,6 @@ autocmd BufWritePost *.clj call Cljfmt()
 autocmd BufWritePost *.boot call Cljfmt()
 autocmd BufWritePost *.edn call Cljfmt()
 autocmd BufWritePost *.fnl call Fnlfmt()
-
 
 lua require('auto-conjure')
 autocmd BufReadPost *.cljs :AutoConjureSelect
