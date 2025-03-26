@@ -1,34 +1,20 @@
-(module auto-conjure {require {{:decode decode} edn} autoload {a aniseed.core}})
+(module auto-conjure
+        {;;
+         require {a aniseed.core {:decode decode} edn}})
 
 (local nvim vim.api)
 
-(fn get-project-root []
-  (vim.fn.getcwd))
-
-(fn shadow-cljs []
-  (let [project-root (get-project-root)
-        shadow-path (.. project-root :/shadow-cljs.edn)
-        file (io.open shadow-path :r)]
-    (if file
-        (let [content (file:read :*a)]
-          (file:close)
-          content)
-        (do
-          (nvim.nvim_err_writeln (.. "File not found: " shadow-path))
-          nil))))
+(fn shadow-cljs-content []
+  (a.slurp :shadow-cljs.edn))
 
 (fn build-key [tbl]
-  (let [lseq []]
-    (each [k v (pairs tbl.builds)]
-      (table.insert lseq k))
-    (a.first lseq)))
+  (a.first (a.keys (a.get tbl :builds))))
 
 (fn shadow-build-id []
-  (build-key (decode (shadow-cljs))))
+  (build-key (decode (shadow-cljs-content))))
 
 (fn auto-conjure-select []
   (let [cmd (.. "ConjureShadowSelect " (shadow-build-id))]
-    ;(a.println cmd)
     (nvim.nvim_command cmd)))
 
 (nvim.nvim_create_user_command :AutoConjureSelect auto-conjure-select {})
