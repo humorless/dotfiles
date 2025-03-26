@@ -1,0 +1,2 @@
+syn keyword FennelSpecialForm defn
+
