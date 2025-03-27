@@ -1,17 +1,17 @@
 (module auto-conjure
         {;;
-         require {a aniseed.core {:decode decode} edn}})
+         autoload {a aniseed.core {:decode decode} edn}})
 
-(local nvim vim.api)
+(def- nvim vim.api)
 
-(defn shadow-cljs-content []
+(defn- shadow-cljs-content []
   (a.slurp :shadow-cljs.edn))
 
-(defn build-key
+(defn- build-key
   [tbl]
   (a.first (a.keys (a.get tbl :builds))))
 
-(defn shadow-build-id
+(defn- shadow-build-id
   []
   (build-key (decode (shadow-cljs-content))))
 
