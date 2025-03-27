@@ -18,10 +18,10 @@ Plug 'clojure-vim/clojure.vim'
 Plug 'bakpakin/fennel.vim'
 
 " Conjure
+Plug 'Olical/nfnl'
 Plug 'Olical/conjure', {'tag': 'v4.53.0'}
 " Fennel local config
 Plug 'Olical/nvim-local-fennel'
-Plug 'Olical/aniseed'
 
 " s-expression editing
 Plug 'guns/vim-sexp'
@@ -59,8 +59,8 @@ call plug#end()
 
 " Place configuration AFTER `call plug#end()`!
 
-let g:aniseed#env = v:true
-let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
+""let g:aniseed#env = v:true
+""let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
 let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
 let g:rainbow_ctermfgs = [
             \ 'red',
