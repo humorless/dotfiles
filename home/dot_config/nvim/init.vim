@@ -136,5 +136,10 @@ autocmd BufWritePost *.boot call Cljfmt()
 autocmd BufWritePost *.edn call Cljfmt()
 autocmd BufWritePost *.fnl call Fnlfmt()
 
-lua require('auto-conjure')
+function! AutoConjureSelect()
+  let shadow_build_id = luaeval("require('auto-conjure').shadow_build_id()")
+  let cmd='ConjureShadowSelect ' . shadow_build_id
+  execute cmd
+endfunction
+command! AutoConjureSelect call AutoConjureSelect()
 autocmd BufReadPost *.cljs :AutoConjureSelect
