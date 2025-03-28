@@ -58,9 +58,6 @@ Plug 'cloudhead/neovim-fuzzy'
 call plug#end()
 
 " Place configuration AFTER `call plug#end()`!
-
-""let g:aniseed#env = v:true
-""let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
 let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
 let g:rainbow_ctermfgs = [
             \ 'red',
@@ -79,7 +76,6 @@ let g:ale_linters = {
       \ 'clojure': ['clj-kondo', 'joker']
       \}
 let maplocalleader=","
-" let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 let g:ack_default_options = ' -s -H --nogroup --nocolor --column --smart-case --follow'
 
 " mapping for fuzzy search
