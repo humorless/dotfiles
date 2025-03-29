@@ -1,50 +1,46 @@
 " Specify a directory for plugins.
 call plug#begin(stdpath('data') . '/plugged')
 
-" Specify your required plugins here.
-
+" === Basic Setup ===
 " better default
 Plug 'liuchengxu/vim-better-default'
+" color, look and feel 
+Plug 'tomasr/molokai'
+" better preview window for suggestion/ auto-complete 
+Plug 'ncm2/float-preview.nvim'
 
+" === Highlight ===
 " Syntax highlight for JUST
 Plug 'NoahTheDuke/vim-just'
-
 " Syntax highlight for Clojure
 Plug 'clojure-vim/clojure.vim'
 " Syntax highlight for fennel language
 Plug 'bakpakin/fennel.vim'
+" rainbow parentheses
+Plug 'frazrepo/vim-rainbow'
 
-" Conjure
+" === Fennel (Config) Support ===
 Plug 'Olical/nfnl'
-Plug 'Olical/conjure', {'tag': 'v4.53.0'}
 " Fennel local config
 Plug 'Olical/nvim-local-fennel'
 
-" s-expression editing
+" === Interactive Development ===
+" Conjure
+Plug 'Olical/conjure', {'tag': 'v4.53.0'}
+
+" === S-expression editing ===
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
 
-" rainbow parentheses
-Plug 'amdt/vim-niji'
-" vim-niji does not work for fennel for unknown reason, so vim-rainbow is needed
-Plug 'frazrepo/vim-rainbow'
-
-" linter 
+" === Linter === 
 Plug 'w0rp/ale'
 
-" better preview window for suggestion/ auto-complete 
-Plug 'ncm2/float-preview.nvim'
-
-" color, look and feel 
-Plug 'tomasr/molokai'
-
+" === Search Utility === 
 " Ack inside nvim
 Plug 'mileszs/ack.vim'
-Plug 'mpyatishev/vim-sqlformat'
-
 " Fuzzy search
 Plug 'cloudhead/neovim-fuzzy'
 
@@ -56,13 +52,13 @@ let g:aniseed#env = v:true
 let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
 " Config the rainbow-parentheses
 let g:rainbow_ctermfgs = [
-            \ 'red',
-            \ 'yellow',
-            \ 'green',
-            \ 'cyan',
-            \ 'magenta',
-            \ 'gray',
-            \ ]
+    \ 'red',
+    \ 'yellow',
+    \ 'green',
+    \ 'cyan',
+    \ 'magenta',
+    \ 'gray'
+\ ]
 
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
@@ -122,7 +118,7 @@ endfunction
 " default yaml setup
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
 " rainbow parentheses enabled for fennel
-autocmd FileType fennel call rainbow#load()
+autocmd FileType fennel,clojure call rainbow#load()
 
 
 autocmd BufNewFile,BufRead *bin/dev set filetype=clojure
