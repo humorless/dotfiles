@@ -31,7 +31,6 @@ Plug 'Olical/conjure', {'tag': 'v4.53.0'}
 " === S-expression editing ===
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
 
@@ -39,10 +38,11 @@ Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
 Plug 'w0rp/ale'
 
 " === Search Utility === 
-" Ack inside nvim
-Plug 'mileszs/ack.vim'
-" Fuzzy search
-Plug 'cloudhead/neovim-fuzzy'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+" Telescope dependencies: plenary, rg, fd
+Plug 'nvim-lua/plenary.nvim'
+" brew install ripgrep
+" brew install fd
 
 call plug#end()
 
@@ -68,12 +68,15 @@ let g:ale_linters = {
       \ 'clojure': ['clj-kondo', 'joker']
       \}
 let maplocalleader=","
-let g:ack_default_options = ' -s -H --nogroup --nocolor --column --smart-case --follow'
-
-" mapping for fuzzy search
-nnoremap <C-p> :FuzzyOpen<CR>
 " Make the <Esc> key exit terminal mode and return to normal mode.
 tnoremap <Esc> <C-\><C-n>
+
+let mapleader="\\"
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Force vim-better-default/plugin/default.vim get evaluated right away, so 
 " as to overwrite it. 
