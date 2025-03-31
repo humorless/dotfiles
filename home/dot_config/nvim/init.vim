@@ -46,8 +46,6 @@ Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 
-" Make nvim automatically compile all the fennel files
-let g:aniseed#env = v:true
 " Make vim-sexp recognizes the fennel
 let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
 " Config the rainbow-parentheses
@@ -133,7 +131,6 @@ autocmd BufWritePost *.cljc call Cljfmt()
 autocmd BufWritePost *.clj call Cljfmt()
 autocmd BufWritePost *.boot call Cljfmt()
 autocmd BufWritePost *.edn call Cljfmt()
-autocmd BufWritePost *.fnl call Fnlfmt()
 
 function! AutoConjureSelect()
   let shadow_build_id = luaeval("require('auto-conjure').shadow_build_id()")
@@ -142,3 +139,9 @@ function! AutoConjureSelect()
 endfunction
 command! AutoConjureSelect call AutoConjureSelect()
 autocmd BufReadPost *.cljs :AutoConjureSelect
+
+augroup FennelOnSave
+  " Format and compile after save
+  autocmd!
+  autocmd BufWritePost *.fnl call Fnlfmt() | NfnlCompileFile
+augroup END
