@@ -86,5 +86,5 @@ rm -rf $HOME/.config/nvim
 git clone https://github.com/humorless/dotfiles/
 cd dotfiles
 # Makes a symbolic link to the files in this repo
-ls -sf $PWD/dot_config/nvim $HOME/.config/nvim
+ls -sf $PWD/home/dot_config/nvim $HOME/.config/nvim
 ```
