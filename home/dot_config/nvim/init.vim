@@ -29,9 +29,9 @@ Plug 'Olical/nvim-local-fennel'
 Plug 'Olical/conjure', {'tag': 'v4.53.0'}
 
 " === S-expression editing ===
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-surround'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'julienvincent/nvim-paredit'
+Plug 'kylechui/nvim-surround'
 Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
 
 " === Linter === 
@@ -46,8 +46,13 @@ Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 
-" Make vim-sexp recognizes the fennel
-let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
+" tree-sitter's highlight is broken, so I disable it.
+" run following commands to install the tree-sitter parsers
+" :TSUpdate clojure
+" :TSUpdate fennel
+lua require("nvim-treesitter.configs").setup{highlight={enable=false}}
+lua require("nvim-paredit").setup()
+lua require("nvim-surround").setup()
 " Config the rainbow-parentheses
 let g:rainbow_ctermfgs = [
     \ 'red',
