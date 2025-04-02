@@ -71,13 +71,20 @@ nvm install 12.0.0
 ```
 
 ### cljfmt
+
 ```
-npm install -g node-cljfmt
+brew install cljfmt
 ```
 
-## Others
+## Use this neovim config
+
 ```
-# feeling
-git bash-complete
-CLICOLOR, LSCOLORS, PS1
+# Delete the current nvim config
+rm -rf $HOME/.config/nvim
+
+# Download this repo and link it
+git clone https://github.com/humorless/dotfiles/
+cd dotfiles
+# Makes a symbolic link to the files in this repo
+ls -sf $PWD/dot_config/nvim $HOME/.config/nvim
 ```
