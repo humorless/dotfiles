@@ -8,7 +8,12 @@
 (fn build-key [tbl]
   (a.first (a.keys (a.get tbl :builds))))
 
+(fn build-key-content []
+  (a.slurp :.build-key.edn))
+
 (fn shadow_build_id []
-  (build-key (decode (shadow-cljs-content))))
+  (if (build-key-content)
+      (build-key-content)
+      (build-key (decode (shadow-cljs-content)))))
 
 {: shadow_build_id}
