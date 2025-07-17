@@ -44,11 +44,15 @@ Plug 'nvim-lua/plenary.nvim'
 " brew install ripgrep
 " brew install fd
 
+" === Piglet lang ===
+
 call plug#end()
 
 " Make vim-sexp recognizes the fennel
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel'
 lua require("nvim-surround").setup()
+" setup path for luarock
+lua require("luarocks").add_luarocks_paths()
 " Config the rainbow-parentheses
 let g:rainbow_ctermfgs = [
     \ 'red',
