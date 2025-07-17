@@ -44,7 +44,11 @@ Plug 'nvim-lua/plenary.nvim'
 " brew install ripgrep
 " brew install fd
 
-" === Piglet lang ===
+" === Websocket ===
+Plug 'nvim-neotest/nvim-nio'
+Plug 'pysan3/pathlib.nvim'
+Plug 'samsze0/utils.nvim'
+Plug 'samsze0/websocket.nvim'
 
 call plug#end()
 
