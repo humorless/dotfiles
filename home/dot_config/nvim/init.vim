@@ -25,6 +25,8 @@ Plug 'Olical/nfnl'
 " === Interactive Development ===
 " Conjure
 Plug 'Olical/conjure', {'tag': 'v4.55.0'}
+" Conjure client for piglet
+Plug 'humorless/conjure-client-piglet'
 
 " === S-expression editing ===
 Plug 'guns/vim-sexp'
@@ -41,7 +43,6 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-lua/plenary.nvim'
 " brew install ripgrep
 " brew install fd
-Plug 'humorless/conjure-client-piglet'
 
 call plug#end()
 
