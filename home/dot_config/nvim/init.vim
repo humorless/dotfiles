@@ -21,8 +21,6 @@ Plug 'frazrepo/vim-rainbow'
 
 " === Fennel (Config) Support ===
 Plug 'Olical/nfnl'
-" Fennel local config
-Plug 'Olical/nvim-local-fennel'
 
 " === Interactive Development ===
 " Conjure
@@ -51,7 +49,7 @@ lua vim.cmd("let $NVIM_LOG_FILE=expand('~/.cache/nvim/log')")
 lua vim.cmd("set verbosefile=~/.cache/nvim/log")
  
 " Make vim-sexp recognizes the fennel
-let g:sexp_filetypes = 'clojure,scheme,lisp,fennel'
+let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,piglet'
 lua require("nvim-surround").setup()
 " setup path for luarock
 lua require("luarocks").add_luarocks_paths()
@@ -130,7 +128,7 @@ endfunction
 " default yaml setup
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
 " rainbow parentheses enabled for fennel
-autocmd FileType fennel,clojure call rainbow#load()
+autocmd FileType piglet,fennel,clojure call rainbow#load()
 
 
 autocmd BufNewFile,BufRead *bin/dev set filetype=clojure
