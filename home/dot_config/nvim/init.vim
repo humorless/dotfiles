@@ -26,7 +26,7 @@ Plug 'Olical/nvim-local-fennel'
 
 " === Interactive Development ===
 " Conjure
-Plug 'Olical/conjure', {'tag': 'v4.53.0'}
+Plug 'Olical/conjure', {'tag': 'v4.55.0'}
 
 " === S-expression editing ===
 Plug 'guns/vim-sexp'
@@ -43,20 +43,22 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-lua/plenary.nvim'
 " brew install ripgrep
 " brew install fd
-
-" === Websocket ===
-Plug 'nvim-neotest/nvim-nio'
-Plug 'pysan3/pathlib.nvim'
-Plug 'samsze0/utils.nvim'
-Plug 'samsze0/websocket.nvim'
+Plug 'humorless/conjure-client-piglet'
 
 call plug#end()
 
+lua vim.cmd("let $NVIM_LOG_FILE=expand('~/.cache/nvim/log')")
+lua vim.cmd("set verbosefile=~/.cache/nvim/log")
+ 
 " Make vim-sexp recognizes the fennel
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel'
 lua require("nvim-surround").setup()
 " setup path for luarock
 lua require("luarocks").add_luarocks_paths()
+
+" setup for piglet 
+lua require("conjure-client-piglet").setup()
+
 " Config the rainbow-parentheses
 let g:rainbow_ctermfgs = [
     \ 'red',
