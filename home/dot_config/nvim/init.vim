@@ -27,6 +27,7 @@ Plug 'Olical/nfnl'
 Plug 'Olical/conjure', {'tag': 'v4.55.0'}
 " Conjure client for piglet
 Plug 'humorless/conjure-client-piglet'
+Plug 'humorless/auto-conjure'
 
 " === S-expression editing ===
 Plug 'guns/vim-sexp'
@@ -57,6 +58,7 @@ lua require("luarocks").add_luarocks_paths()
 
 " setup for piglet 
 lua require("conjure-client-piglet").setup()
+"let g:conjure#debug = v:true
 
 " Config the rainbow-parentheses
 let g:rainbow_ctermfgs = [
