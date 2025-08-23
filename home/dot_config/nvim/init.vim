@@ -15,7 +15,8 @@ Plug 'NoahTheDuke/vim-just'
 " Syntax highlight for Clojure
 Plug 'clojure-vim/clojure.vim'
 " Syntax highlight for fennel language
-Plug 'bakpakin/fennel.vim'
+""Plug 'bakpakin/fennel.vim' --- Disable because I use treesitter fennel
+
 " rainbow parentheses
 Plug 'frazrepo/vim-rainbow'
 
@@ -45,6 +46,10 @@ Plug 'nvim-lua/plenary.nvim'
 " brew install ripgrep
 " brew install fd
 
+" === Treesitter ===
+Plug 'nvim-treesitter/nvim-treesitter'
+" vim cmd -- :TSInstall fennel
+" vim cmd -- :checkhealth nvim-treesitter
 call plug#end()
 
 lua vim.cmd("let $NVIM_LOG_FILE=expand('~/.cache/nvim/log')")
@@ -52,6 +57,7 @@ lua vim.cmd("set verbosefile=~/.cache/nvim/log")
  
 " Make vim-sexp recognizes the fennel
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,piglet'
+lua require("nvim-treesitter.configs").setup({highlight = {enable = true}})
 lua require("nvim-surround").setup()
 " setup path for luarock
 lua require("luarocks").add_luarocks_paths()
