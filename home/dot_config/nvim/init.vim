@@ -2,8 +2,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 " === Basic Setup ===
-" better default
-Plug 'liuchengxu/vim-better-default'
 " color, look and feel 
 Plug 'tomasr/molokai'
 " better preview window for suggestion/ auto-complete 
