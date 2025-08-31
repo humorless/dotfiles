@@ -21,6 +21,9 @@ Plug 'frazrepo/vim-rainbow'
 " === Fennel (Config) Support ===
 Plug 'Olical/nfnl'
 
+" === Language Server Protocol ===
+Plug 'neovim/nvim-lspconfig'
+
 " === Interactive Development ===
 " Conjure
 Plug 'Olical/conjure', {'tag': 'v4.55.0'}
@@ -79,6 +82,18 @@ let g:rainbow_ctermfgs = [
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
+
+" Setup LSP server for fennel
+""lua require("lspconfig").fennel_ls.setup({})
+lua << EOF
+local lspconfig = require("lspconfig")
+lspconfig.fennel_ls.setup({
+  on_attach = function(client, bufnr)
+    local opts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set("n", "hd", vim.lsp.buf.definition, opts)
+  end,
+})
+EOF
 
 let g:ale_linters = {
       \ 'clojure': ['clj-kondo', 'joker']
