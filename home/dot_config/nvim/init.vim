@@ -53,6 +53,10 @@ Plug 'nvim-treesitter/nvim-treesitter'
 " vim cmd -- :checkhealth nvim-treesitter
 call plug#end()
 
+" share clipboard
+set clipboard=unnamedplus
+
+" specify log file positions
 lua vim.cmd("let $NVIM_LOG_FILE=expand('~/.cache/nvim/log')")
 lua vim.cmd("set verbosefile=~/.cache/nvim/log")
  
