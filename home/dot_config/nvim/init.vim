@@ -65,7 +65,9 @@ let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,piglet'
 
 "" Treesitter syntax highligt does not work well with rainbow parentheses
 "lua require("nvim-treesitter.configs").setup({highlight = {enable = true}})
-lua require("nvim-surround").setup()
+if !empty(glob(stdpath('data') . '/plugged/nvim-surround'))
+    lua require("nvim-surround").setup()
+endif
 " setup path for luarock
 lua require("luarocks").add_luarocks_paths()
 
@@ -118,7 +120,9 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 runtime! plugin/default.vim
 set nonu
 set norelativenumber
-colorscheme molokai
+if !empty(glob(stdpath('data') . '/plugged/molokai'))
+    colorscheme molokai
+endif
 
 function! Cljfmt()
  !cljfmt fix %
