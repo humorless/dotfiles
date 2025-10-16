@@ -55,7 +55,8 @@ call plug#end()
 
 " share clipboard
 set clipboard=unnamedplus
-
+" forbid swapfile
+set noswapfile
 " specify log file positions
 lua vim.cmd("let $NVIM_LOG_FILE=expand('~/.cache/nvim/log')")
 lua vim.cmd("set verbosefile=~/.cache/nvim/log")
