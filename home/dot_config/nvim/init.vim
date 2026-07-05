@@ -62,7 +62,7 @@ lua vim.cmd("let $NVIM_LOG_FILE=expand('~/.cache/nvim/log')")
 lua vim.cmd("set verbosefile=~/.cache/nvim/log")
  
 " Make vim-sexp recognizes the fennel
-let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,piglet'
+let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,piglet,racket'
 
 "" Treesitter syntax highligt does not work well with rainbow parentheses
 "lua require("nvim-treesitter.configs").setup({highlight = {enable = true}})
@@ -161,7 +161,7 @@ endfunction
 " default yaml setup
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:> foldmethod=indent nofoldenable
 " rainbow parentheses enabled for fennel
-autocmd FileType piglet,fennel,clojure call rainbow#load()
+autocmd FileType piglet,fennel,clojure,racket call rainbow#load()
 
 
 autocmd BufNewFile,BufRead *bin/dev set filetype=clojure
