@@ -1,0 +1,23 @@
+# Tip1:
+# using rg to show only the clojure files for further processing
+# rg -tclojure "pattern"
+--type-add=clojure:*.{clj,cljs,cljc,edn,bb}
+
+# Tip2
+# 搜尋字串「全部小寫」時，自動不分大小寫；只要包含任何一個大寫字母，就變成區分大小寫。
+--smart-case
+
+
+--glob=!target/*
+--glob=!node_modules/*
+--glob=!resources/**
+
+# Tip3 
+# 預設 ripgrep 不會搜尋隱藏檔案, 加這個參數後會納入搜尋。
+# --hidden
+
+# Tip４
+# 即使搜尋隱藏檔時，仍要排除的目錄
+--glob=!.git/*
+--glob=!.shadow-cljs/**
+--glob=!.cpcache/**
