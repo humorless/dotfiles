@@ -102,6 +102,8 @@ lspconfig.fennel_ls.setup({
 })
 EOF
 
+" for EOPL
+let g:conjure#client#racket#stdio#command = "racket -I eopl"
 let g:ale_linters = {
       \ 'clojure': ['clj-kondo', 'joker']
       \}
